@@ -166,84 +166,77 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
 .hero-copy p:not(.eyebrow) { max-width: 600px; font-size: 1.04rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
 
-.hero-visual { position: relative; min-height: 540px; }
-.mesh {
-  position: absolute;
-  border-radius: 34px;
-  animation: floatSlow 7s ease-in-out infinite;
+.hero-visual {
+  position: relative;
+  min-height: 540px;
+  display: grid;
+  place-items: center;
 }
-.mesh-main {
-  inset: 82px 74px 86px;
-  border: 1px solid rgba(21, 40, 247, 0.16);
-  background:
-    radial-gradient(circle at 22% 28%, rgba(21, 40, 247, 0.18), transparent 22%),
-    radial-gradient(circle at 72% 34%, rgba(139, 34, 214, 0.16), transparent 22%),
-    radial-gradient(circle at 66% 74%, rgba(255, 100, 19, 0.18), transparent 24%),
-    rgba(255, 255, 255, 0.48);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
+.connection-visual {
+  position: relative;
+  width: min(100%, 560px);
+  aspect-ratio: 15 / 13;
 }
-.mesh-soft {
-  inset: 132px 124px 134px;
-  border: 1px solid rgba(255, 100, 19, 0.16);
-  background: rgba(255, 255, 255, 0.36);
-  animation-delay: -3s;
-}
-.mesh-line {
-  position: absolute;
-  z-index: 2;
-  left: 21%;
-  right: 17%;
-  top: 51%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(21, 40, 247, 0.26), rgba(255, 100, 19, 0.28), transparent);
-  transform-origin: center;
-}
-.mesh-line-one { transform: rotate(16deg); }
-.mesh-line-two { transform: rotate(-24deg); }
-.mesh-line-three { transform: rotate(68deg); opacity: 0.72; }
-.mesh-dot {
-  position: absolute;
-  z-index: 3;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue), var(--violet));
-  box-shadow: 0 12px 26px rgba(21, 40, 247, 0.2);
-  animation: pulse 3.8s ease-in-out infinite;
-}
-.dot-one { top: 126px; left: 156px; }
-.dot-two { top: 184px; right: 142px; animation-delay: -1s; }
-.dot-three { left: 198px; bottom: 126px; animation-delay: -2s; }
-.dot-four { right: 112px; bottom: 156px; background: linear-gradient(135deg, var(--orange), #ff7e22); animation-delay: -3s; }
-.floating-chip {
-  position: absolute;
-  z-index: 4;
-  width: 74px;
-  height: 74px;
-  border: 1px solid rgba(255, 255, 255, 0.62);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
-  animation: floatSlow 6s ease-in-out infinite;
-}
-.floating-chip::before, .floating-chip::after {
+.connection-visual::before {
   content: "";
   position: absolute;
-  inset: 18px;
-  border: 2px solid currentColor;
-  border-radius: 12px;
-}
-.floating-chip::after {
-  inset: 29px;
-  border-width: 0;
+  inset: 12% 8%;
+  border: 1px solid rgba(21, 40, 247, 0.08);
   border-radius: 50%;
-  background: currentColor;
+  transform: rotate(-8deg);
 }
-.chip-travel { top: 128px; left: 18px; color: var(--blue); }
-.chip-supplies { right: 20px; top: 224px; color: var(--violet); animation-delay: -2s; }
-.chip-digital { left: 132px; bottom: 70px; color: var(--orange); animation-delay: -4s; }
+.connection-map { width: 100%; height: 100%; overflow: visible; }
+.network-ring {
+  fill: none;
+  stroke: rgba(21, 40, 247, 0.11);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transform-origin: 300px 260px;
+}
+.ring-outer { stroke-dasharray: 2 11; animation: ringRotate 24s linear infinite; }
+.ring-inner { stroke: rgba(139, 34, 214, 0.13); stroke-dasharray: 26 12; animation: ringRotate 20s linear infinite reverse; }
+.network-route {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.route-base { stroke: rgba(31, 38, 68, 0.11); stroke-width: 1; }
+.route-flow {
+  stroke-width: 2;
+  stroke-dasharray: 18 34;
+  animation: routeFlow 8s linear infinite;
+}
+.route-blue { stroke: url(#route-blue); }
+.route-warm { stroke: url(#route-warm); animation-delay: -2.7s; }
+.route-violet { stroke: rgba(139, 34, 214, 0.52); animation-delay: -5.4s; }
+.route-particle {
+  filter: drop-shadow(0 0 5px currentColor);
+  opacity: 0.92;
+}
+.particle-blue { color: var(--blue); fill: var(--blue); }
+.particle-warm { color: var(--orange); fill: var(--orange); }
+.particle-violet { color: var(--violet); fill: var(--violet); }
+.core-halo {
+  fill: rgba(255, 255, 255, 0.28);
+  stroke: rgba(21, 40, 247, 0.11);
+  stroke-width: 1;
+}
+.core-ring {
+  fill: url(#node-core);
+  stroke: rgba(21, 40, 247, 0.2);
+  stroke-width: 1;
+  filter: drop-shadow(0 18px 28px rgba(21, 40, 247, 0.13));
+}
+.core-dot { fill: var(--blue); }
+.network-core { transform-origin: 303px 257px; animation: coreBreathe 3.8s ease-in-out infinite; }
+.node-halo { fill: rgba(255, 255, 255, 0.74); stroke: rgba(21, 40, 247, 0.16); stroke-width: 1; }
+.node-dot { fill: var(--blue); }
+.node-two .node-dot { fill: var(--violet); }
+.node-three .node-dot, .node-four .node-dot { fill: var(--orange); }
+.network-node { animation: nodePulse 3.2s ease-in-out infinite; }
+.node-two { animation-delay: -1s; }
+.node-three { animation-delay: -2s; }
+.node-four { animation-delay: -3s; }
 
 .section { background: white; border-top: 1px solid var(--line); }
 .section.soft { background: var(--mist); }
@@ -359,15 +352,18 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 640ms ease, transform 640ms ease; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+@keyframes routeFlow { to { stroke-dashoffset: -104; } }
+@keyframes ringRotate { to { transform: rotate(360deg); } }
+@keyframes coreBreathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.035); }
 }
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 18px 34px rgba(21, 40, 247, 0.18); }
-  50% { box-shadow: 0 24px 54px rgba(255, 100, 19, 0.22); }
+@keyframes nodePulse {
+  0%, 100% { opacity: 0.72; }
+  50% { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .route-particles { display: none; }
   *, *::before, *::after {
     scroll-behavior: auto !important;
     animation-duration: 1ms !important;
@@ -410,19 +406,7 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   h1 { font-size: 3.05rem; }
   h2 { font-size: 2.35rem; }
   .hero-visual { min-height: 340px; }
-  .mesh-main { inset: 48px 22px 54px; }
-  .mesh-soft { inset: 108px 74px 112px; }
-  .mesh-dot { width: 18px; height: 18px; }
-  .dot-one { top: 94px; left: 72px; }
-  .dot-two { top: 156px; right: 72px; }
-  .dot-three { left: 98px; bottom: 104px; }
-  .dot-four { right: 58px; bottom: 126px; }
-  .floating-chip { width: 58px; height: 58px; border-radius: 14px; }
-  .floating-chip::before { inset: 14px; }
-  .floating-chip::after { inset: 23px; }
-  .chip-travel { top: 86px; }
-  .chip-supplies { top: 164px; }
-  .chip-digital { left: 54px; bottom: 30px; }
+  .connection-visual { width: min(112%, 480px); }
   .service-grid, .value-list, .visual-panel { grid-template-columns: 1fr; }
   .footer { align-items: flex-start; flex-direction: column; padding: 24px 0; }
 }

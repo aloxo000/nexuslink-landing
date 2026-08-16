@@ -37,18 +37,80 @@
             </div>
           </div>
           <div class="hero-visual reveal" aria-hidden="true">
-            <div class="mesh mesh-main"></div>
-            <div class="mesh mesh-soft"></div>
-            <div class="mesh-line mesh-line-one"></div>
-            <div class="mesh-line mesh-line-two"></div>
-            <div class="mesh-line mesh-line-three"></div>
-            <div class="mesh-dot dot-one"></div>
-            <div class="mesh-dot dot-two"></div>
-            <div class="mesh-dot dot-three"></div>
-            <div class="mesh-dot dot-four"></div>
-            <div class="floating-chip chip-travel"></div>
-            <div class="floating-chip chip-supplies"></div>
-            <div class="floating-chip chip-digital"></div>
+            <div class="connection-visual">
+              <svg class="connection-map" viewBox="0 0 600 520" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="route-blue" x1="78" y1="410" x2="510" y2="108" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#1528f7" stop-opacity="0"/>
+                    <stop offset="0.5" stop-color="#1528f7"/>
+                    <stop offset="1" stop-color="#8b22d6" stop-opacity="0"/>
+                  </linearGradient>
+                  <linearGradient id="route-warm" x1="88" y1="120" x2="535" y2="390" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#8b22d6" stop-opacity="0"/>
+                    <stop offset="0.55" stop-color="#8b22d6"/>
+                    <stop offset="1" stop-color="#ff6413" stop-opacity="0"/>
+                  </linearGradient>
+                  <radialGradient id="node-core">
+                    <stop stop-color="#ffffff"/>
+                    <stop offset="1" stop-color="#eef1ff"/>
+                  </radialGradient>
+                </defs>
+
+                <ellipse class="network-ring ring-outer" cx="300" cy="260" rx="224" ry="196"/>
+                <ellipse class="network-ring ring-inner" cx="300" cy="260" rx="148" ry="126"/>
+
+                <path id="route-a" class="network-route route-base" d="M70 394C169 366 205 179 303 210C391 238 416 394 536 340"/>
+                <path class="network-route route-flow route-blue" d="M70 394C169 366 205 179 303 210C391 238 416 394 536 340"/>
+                <path id="route-b" class="network-route route-base" d="M78 134C189 104 226 304 319 301C414 297 442 149 538 168"/>
+                <path class="network-route route-flow route-warm" d="M78 134C189 104 226 304 319 301C414 297 442 149 538 168"/>
+                <path id="route-c" class="network-route route-base route-vertical" d="M250 56C215 160 370 182 341 286C320 363 241 391 275 468"/>
+                <path class="network-route route-flow route-violet" d="M250 56C215 160 370 182 341 286C320 363 241 391 275 468"/>
+
+                <g class="route-particles">
+                  <circle class="route-particle particle-blue" r="3.5">
+                    <animateMotion dur="5.8s" repeatCount="indefinite"><mpath href="#route-a"/></animateMotion>
+                  </circle>
+                  <circle class="route-particle particle-blue" r="2.5">
+                    <animateMotion begin="-2.9s" dur="5.8s" repeatCount="indefinite"><mpath href="#route-a"/></animateMotion>
+                  </circle>
+                  <circle class="route-particle particle-warm" r="3.5">
+                    <animateMotion dur="6.2s" repeatCount="indefinite"><mpath href="#route-b"/></animateMotion>
+                  </circle>
+                  <circle class="route-particle particle-warm" r="2.5">
+                    <animateMotion begin="-3.1s" dur="6.2s" repeatCount="indefinite"><mpath href="#route-b"/></animateMotion>
+                  </circle>
+                  <circle class="route-particle particle-violet" r="3.5">
+                    <animateMotion dur="5.4s" repeatCount="indefinite"><mpath href="#route-c"/></animateMotion>
+                  </circle>
+                  <circle class="route-particle particle-violet" r="2.5">
+                    <animateMotion begin="-2.7s" dur="5.4s" repeatCount="indefinite"><mpath href="#route-c"/></animateMotion>
+                  </circle>
+                </g>
+
+                <g class="network-core">
+                  <circle class="core-halo" cx="303" cy="257" r="65"/>
+                  <circle class="core-ring" cx="303" cy="257" r="38"/>
+                  <circle class="core-dot" cx="303" cy="257" r="9"/>
+                </g>
+
+                <g class="network-node node-one">
+                  <circle class="node-halo" cx="110" cy="381" r="17"/>
+                  <circle class="node-dot" cx="110" cy="381" r="5"/>
+                </g>
+                <g class="network-node node-two">
+                  <circle class="node-halo" cx="119" cy="129" r="17"/>
+                  <circle class="node-dot" cx="119" cy="129" r="5"/>
+                </g>
+                <g class="network-node node-three">
+                  <circle class="node-halo" cx="505" cy="174" r="17"/>
+                  <circle class="node-dot" cx="505" cy="174" r="5"/>
+                </g>
+                <g class="network-node node-four">
+                  <circle class="node-halo" cx="501" cy="351" r="17"/>
+                  <circle class="node-dot" cx="501" cy="351" r="5"/>
+                </g>
+              </svg>
+            </div>
           </div>
         </div>
       </section>
