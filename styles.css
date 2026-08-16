@@ -184,8 +184,27 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   border: 1px solid rgba(21, 40, 247, 0.08);
   border-radius: 50%;
   transform: rotate(-8deg);
+  transition: opacity 420ms ease;
 }
-.connection-map { width: 100%; height: 100%; overflow: visible; }
+.connection-canvas {
+  position: absolute;
+  z-index: 2;
+  inset: -7%;
+  width: 114%;
+  height: 114%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 620ms ease;
+}
+.connection-map {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition: opacity 420ms ease;
+}
+.connection-visual.three-ready::before { opacity: 0; }
+.connection-visual.three-ready .connection-canvas { opacity: 1; }
+.connection-visual.three-ready .connection-map { opacity: 0; }
 .network-ring {
   fill: none;
   stroke: rgba(21, 40, 247, 0.11);
