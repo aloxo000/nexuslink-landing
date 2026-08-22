@@ -1093,6 +1093,91 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
 }
 .digital-theme .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
 
+/* Nexus flow (Home) */
+.nexus-flow-section .section-inner { width: min(1040px, calc(100% - 36px)); }
+.nexus-flow-section .section-heading p:not(.eyebrow) { max-width: 640px; }
+.nexus-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin-top: 12px;
+}
+.nexus-node {
+  flex: 1 1 120px;
+  min-width: 0;
+  padding: 20px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 36px rgba(7, 20, 41, 0.07);
+  text-align: center;
+  animation: nexus-node-bob 5s ease-in-out infinite;
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+.nexus-node:nth-child(2n) { animation-delay: -1.6s; }
+.nexus-node:nth-child(3n) { animation-delay: -3.2s; }
+.nexus-node:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 26px 52px rgba(7, 20, 41, 0.14);
+  border-color: rgba(21, 40, 247, 0.28);
+  animation-play-state: paused;
+}
+.nexus-node-icon {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(21, 40, 247, 0.08);
+}
+.nexus-node-icon svg {
+  width: 22px; height: 22px;
+  fill: none; stroke: var(--blue);
+  stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+}
+.nexus-node h3 { font-size: 0.92rem; margin-bottom: 6px; }
+.nexus-node p { margin: 0; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+.nexus-hub {
+  flex: 1.15 1 150px;
+  background: linear-gradient(150deg, #1528f7, #8b22d6);
+  border: none;
+  box-shadow: 0 22px 48px rgba(21, 40, 247, 0.28);
+  color: white;
+  animation: nexus-hub-pulse 3.2s ease-in-out infinite;
+}
+.nexus-hub .nexus-node-icon { background: rgba(255, 255, 255, 0.16); }
+.nexus-hub .nexus-node-icon svg { stroke: white; }
+.nexus-hub h3 { color: white; }
+.nexus-hub p { color: rgba(255, 255, 255, 0.82); }
+.nexus-hub:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 30px 60px rgba(21, 40, 247, 0.36);
+}
+.nexus-arrow {
+  flex: none;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+@keyframes nexus-node-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes nexus-hub-pulse {
+  0%, 100% { box-shadow: 0 22px 48px rgba(21, 40, 247, 0.28); }
+  50% { box-shadow: 0 26px 58px rgba(139, 34, 214, 0.36); }
+}
+@media (max-width: 960px) {
+  .nexus-flow { flex-direction: column; }
+  .nexus-arrow { transform: rotate(90deg); align-self: center; }
+  .nexus-hub { flex: 1; }
+}
+
 /* Flow steps (data journey) */
 .flow-steps {
   display: flex;
