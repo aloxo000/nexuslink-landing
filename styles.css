@@ -146,6 +146,12 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
     radial-gradient(circle at 92% 16%, rgba(255, 100, 19, 0.13), transparent 24rem),
     linear-gradient(115deg, #fff 0%, #f6f8ff 58%, #fff4ee 100%);
 }
+.hero {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.88) 34%, rgba(246, 248, 255, 0.56) 62%, rgba(255, 255, 255, 0.12) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(246, 248, 255, 0.44)),
+    url("assets/hero-travel-oilgas.png") center right / cover no-repeat;
+}
 .hero::before, .subpage-hero::before {
   content: "";
   position: absolute;
@@ -159,15 +165,17 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
 }
 .page-hero .section-inner, .subpage-hero .section-inner { position: relative; z-index: 2; }
 .hero-grid {
+  width: min(1060px, calc(100% - 36px));
   min-height: calc(100vh - 78px);
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.75fr);
+  grid-template-columns: minmax(0, 0.88fr) minmax(380px, 0.68fr);
   align-items: center;
-  gap: 58px;
+  gap: 42px;
 }
 .hero-copy h1 {
   font-size: clamp(2rem, 4.25vw, 4.1rem);
   font-weight: 800;
+  line-height: 1.12;
 }
 .hero-copy p:not(.eyebrow) {
   font-weight: 500;
@@ -275,51 +283,35 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   gap: 16px;
 }
 .service-card {
-  min-height: 220px;
+  min-height: 340px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   border: 1px solid var(--line);
   border-radius: 8px;
-  padding: 24px;
+  padding: 14px 14px 22px;
   background: white;
   box-shadow: 0 18px 44px rgba(7, 20, 41, 0.07);
   transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
 }
-.service-icon {
-  width: 76px;
-  height: 76px;
-  margin-bottom: 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(21, 40, 247, 0.08);
-  transition: transform 220ms ease, background 220ms ease;
+.service-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 22px;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--mist);
 }
-.service-icon svg {
-  width: 38px;
-  height: 38px;
-  fill: none;
-  stroke: var(--blue);
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 260ms ease;
 }
-.service-card:nth-child(2) .service-icon {
-  background: rgba(21, 40, 247, 0.08);
-}
-.service-card:nth-child(3) .service-icon {
-  background: rgba(139, 34, 214, 0.09);
-}
-.service-card:nth-child(3) .service-icon svg {
-  stroke: var(--violet);
-}
-.service-card:nth-child(4) .service-icon {
-  background: rgba(255, 100, 19, 0.1);
-}
-.service-card:nth-child(4) .service-icon svg {
-  stroke: var(--orange);
+.service-card h3,
+.service-card p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .service-card:hover,
 .service-card.reveal.is-visible:hover {
@@ -327,9 +319,9 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   border-color: rgba(21, 40, 247, 0.24);
   box-shadow: 0 30px 70px rgba(7, 20, 41, 0.14);
 }
-.service-card:hover .service-icon,
-.service-card.reveal.is-visible:hover .service-icon {
-  transform: translateY(-3px) scale(1.04);
+.service-card:hover .service-image img,
+.service-card.reveal.is-visible:hover .service-image img {
+  transform: scale(1.045);
 }
 .why-section {
   background: var(--mist);
@@ -648,6 +640,10 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   .section-inner { padding: 78px 0; }
   h1 { font-size: 3.05rem; }
   h2 { font-size: 2.35rem; }
+  .hero-copy h1 {
+    font-size: 2.5rem;
+    line-height: 1.18;
+  }
   .hero-visual { min-height: 340px; }
   .connection-visual { width: min(112%, 480px); }
   .service-grid, .why-list, .visual-panel { grid-template-columns: 1fr; }
