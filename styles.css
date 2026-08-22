@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
 :root {
   --ink: #071429;
   --muted: #647085;
@@ -9,7 +11,7 @@
   --violet: #8b22d6;
   --orange: #ff6413;
   --shadow: 0 24px 70px rgba(7, 20, 41, 0.12);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Plus Jakarta Sans", "Be Vietnam Pro", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -163,7 +165,14 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   align-items: center;
   gap: 58px;
 }
-.hero-copy p:not(.eyebrow) { max-width: 600px; font-size: 1.04rem; }
+.hero-copy h1 {
+  font-size: clamp(2rem, 4.25vw, 4.1rem);
+  font-weight: 800;
+}
+.hero-copy p:not(.eyebrow) {
+  font-weight: 500;
+}
+.hero-copy p:not(.eyebrow) { max-width: 600px; font-size: 1.12rem; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
 
 .hero-visual {
@@ -549,6 +558,11 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   height: 28px;
   fill: currentColor;
   stroke: none;
+}
+.contact-action.facebook .contact-action-icon svg {
+  width: 32px;
+  height: 32px;
+  transform: translateY(1px);
 }
 .contact-action.email .contact-action-icon {
   background: linear-gradient(135deg, var(--violet), var(--orange));
