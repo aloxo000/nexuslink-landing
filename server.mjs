@@ -60,6 +60,6 @@ createServer(async (req, res) => {
     res.writeHead(404);
     res.end("Not found");
   }
-}).listen(port, "127.0.0.1", () => {
-  console.log(`NexusLink local server http://127.0.0.1:${port}`);
+}).listen(port, "0.0.0.0", () => {
+  console.log(`NexusLink local server http://127.0.0.1:${port} (also on your LAN IP)`);
 });
