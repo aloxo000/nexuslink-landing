@@ -30,3 +30,14 @@ const revealObserver = new IntersectionObserver(
 );
 
 document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+const backToTop = document.querySelector(".back-to-top");
+
+if (backToTop) {
+  const updateBackToTop = () => {
+    backToTop.classList.toggle("is-visible", window.scrollY > 520);
+  };
+
+  updateBackToTop();
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+}
