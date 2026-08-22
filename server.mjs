@@ -1,5 +1,6 @@
 import { createServer } from "node:http";
-import { readFile } from "node:fs/promises";
+import { createReadStream } from "node:fs";
+import { stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,6 +13,11 @@ const types = {
   ".js": "text/javascript; charset=utf-8",
   ".md": "text/markdown; charset=utf-8",
   ".png": "image/png",
+  ".webp": "image/webp",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".svg": "image/svg+xml",
+  ".mp4": "video/mp4",
 };
 
 createServer(async (req, res) => {
@@ -25,10 +31,31 @@ createServer(async (req, res) => {
     return;
   }
 
+  const contentType = types[path.extname(filePath)] || "application/octet-stream";
+
   try {
-    const content = await readFile(filePath);
-    res.writeHead(200, { "Content-Type": types[path.extname(filePath)] || "application/octet-stream" });
-    res.end(content);
+    const { size } = await stat(filePath);
+    const range = req.headers.range;
+
+    if (range) {
+      const match = /bytes=(\d*)-(\d*)/.exec(range);
+      const start = match[1] ? Number(match[1]) : 0;
+      const end = match[2] ? Number(match[2]) : size - 1;
+      res.writeHead(206, {
+        "Content-Type": contentType,
+        "Content-Length": end - start + 1,
+        "Content-Range": `bytes ${start}-${end}/${size}`,
+        "Accept-Ranges": "bytes",
+      });
+      createReadStream(filePath, { start, end }).pipe(res);
+    } else {
+      res.writeHead(200, {
+        "Content-Type": contentType,
+        "Content-Length": size,
+        "Accept-Ranges": "bytes",
+      });
+      createReadStream(filePath).pipe(res);
+    }
   } catch {
     res.writeHead(404);
     res.end("Not found");

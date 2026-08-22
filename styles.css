@@ -535,6 +535,434 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
 }
 .subpage-grid h1, .contact-page-grid h1 { max-width: 720px; }
 .subpage-grid p:not(.eyebrow), .contact-page-grid p:not(.eyebrow) { max-width: 560px; font-size: 1.04rem; }
+.subpage-grid h1 {
+  color: #0b1f4d;
+  background: linear-gradient(108deg, #071429 0%, #1528f7 45%, #8b22d6 72%, #ff6413 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.travel-page-hero {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.56) 0%, rgba(255, 255, 255, 0.66) 34%, rgba(249, 250, 255, 0.94) 52%, #ffffff 64%, #ffffff 100%),
+    linear-gradient(180deg, rgba(236, 247, 255, 0.05), rgba(241, 246, 255, 0.3)),
+    url("assets/travel-hero-busan-beach.webp") left 64% / 58% auto no-repeat,
+    linear-gradient(115deg, #e8f7ff, #f7f9ff 58%, #ffffff);
+}
+.travel-page-hero .subpage-grid {
+  min-height: calc(56vh - 78px);
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+.travel-page-hero .subpage-grid > * {
+  min-width: 0;
+}
+.travel-page-hero .subpage-grid h1 {
+  display: inline-block;
+  max-width: 620px;
+  margin-bottom: 22px;
+  padding-bottom: 0.18em;
+  font-size: clamp(2.15rem, 4.25vw, 4.05rem);
+  line-height: 1.16;
+  overflow: visible;
+}
+.travel-page-hero .subpage-grid p:not(.eyebrow) {
+  position: relative;
+  z-index: 1;
+  max-width: 610px;
+  margin-top: 0;
+  margin-bottom: 28px;
+  background: transparent;
+}
+.travel-brand-lockup {
+  width: 178px;
+  max-width: 48vw;
+  margin-bottom: 24px;
+}
+.travel-brand-lockup img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 24px rgba(80, 28, 170, 0.13));
+}
+.travel-motion {
+  position: relative;
+  isolation: isolate;
+  justify-self: end;
+  width: min(100%, 490px);
+  aspect-ratio: 520 / 420;
+}
+.travel-motion-glow {
+  position: absolute;
+  inset: 12% 4% 3% 8%;
+  z-index: -1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 34, 214, 0.25), rgba(21, 40, 247, 0.08) 48%, transparent 72%);
+  filter: blur(18px);
+  animation: travelGlow 5s ease-in-out infinite;
+}
+.travel-flight-route {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+.travel-route-base,
+.travel-route-flow {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+.travel-route-base {
+  stroke: rgba(255, 255, 255, 0.52);
+  stroke-width: 1.2;
+  stroke-dasharray: 3 8;
+}
+.travel-route-flow {
+  stroke: url(#travel-route-gradient);
+  stroke-width: 2.4;
+  stroke-dasharray: 22 34;
+  animation: travelRouteFlow 7s linear infinite;
+}
+.travel-route-node {
+  fill: #fff;
+  stroke-width: 5;
+  vector-effect: non-scaling-stroke;
+}
+.travel-route-node.node-start { stroke: rgba(21, 40, 247, 0.38); }
+.travel-route-node.node-end { stroke: rgba(255, 100, 19, 0.42); }
+.travel-plane {
+  filter: drop-shadow(0 4px 7px rgba(59, 24, 136, 0.42));
+}
+.travel-plane-shape {
+  fill: var(--violet);
+  stroke: rgba(255, 255, 255, 0.85);
+  stroke-width: 0.8;
+}
+.travel-passport-card {
+  position: absolute;
+  left: 0;
+  top: 17%;
+  width: 37%;
+  height: 64%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 25px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 16px;
+  color: #f7cf74;
+  background:
+    radial-gradient(circle at 76% 18%, rgba(204, 76, 177, 0.46), transparent 9rem),
+    linear-gradient(145deg, #272065, #592475 66%, #7d285f);
+  box-shadow: inset 10px 0 18px rgba(9, 7, 43, 0.2), 0 30px 70px rgba(20, 21, 73, 0.3);
+  transform: rotate(-4deg);
+  animation: travelPassportFloat 6.4s ease-in-out infinite;
+}
+.travel-passport-card::before,
+.travel-passport-card::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+.travel-passport-card::before { width: 76%; aspect-ratio: 1; }
+.travel-passport-card::after { width: 54%; aspect-ratio: 1; }
+.passport-title {
+  position: relative;
+  z-index: 1;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+}
+.passport-emblem {
+  position: relative;
+  z-index: 1;
+  width: 58px;
+  height: 58px;
+  fill: none;
+  stroke: #f7cf74;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+.travel-passport-card small {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 226, 157, 0.76);
+  font-size: 0.54rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+.travel-ticket-card {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 31%;
+  width: 58%;
+  min-height: 45%;
+  padding: 20px 22px 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 18px;
+  color: #121b36;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 26px 66px rgba(7, 20, 41, 0.24);
+  backdrop-filter: blur(18px) saturate(135%);
+  transform: rotate(2.2deg);
+  animation: travelTicketFloat 5.8s ease-in-out infinite;
+}
+.travel-ticket-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--blue), var(--violet) 62%, var(--orange));
+}
+.ticket-kicker,
+.ticket-route,
+.ticket-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticket-kicker {
+  color: #69738a;
+  font-size: 0.57rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+}
+.ticket-kicker strong { color: var(--violet); }
+.ticket-route { margin: 14px 0 13px; }
+.ticket-route span {
+  display: flex;
+  flex-direction: column;
+  color: #111d38;
+  font-size: 1.65rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.ticket-route span:last-child { align-items: flex-end; }
+.ticket-route small {
+  margin-top: 5px;
+  color: #758096;
+  font-size: 0.58rem;
+  font-weight: 650;
+}
+.ticket-route b {
+  color: var(--violet);
+  font-size: 1.25rem;
+}
+.ticket-meta {
+  padding-top: 12px;
+  border-top: 1px dashed rgba(17, 31, 63, 0.16);
+}
+.ticket-meta span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #8490a5;
+  font-size: 0.5rem;
+  font-weight: 750;
+}
+.ticket-meta strong { color: #26324b; font-size: 0.66rem; }
+.ticket-barcode {
+  height: 14px;
+  margin-top: 12px;
+  opacity: 0.48;
+  background: repeating-linear-gradient(90deg, #17233c 0 2px, transparent 2px 5px, #17233c 5px 6px, transparent 6px 9px);
+}
+.travel-visa-badge,
+.travel-eticket-chip {
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 44px rgba(7, 20, 41, 0.2);
+  backdrop-filter: blur(16px);
+}
+.travel-visa-badge {
+  right: -1%;
+  bottom: 8%;
+  gap: 10px;
+  padding: 11px 14px;
+  border-radius: 14px;
+  animation: travelBadgeFloat 5.2s ease-in-out infinite;
+}
+.visa-check {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, var(--violet), var(--orange));
+  font-size: 1rem;
+  font-weight: 900;
+}
+.travel-visa-badge > span:last-child { display: flex; flex-direction: column; }
+.travel-visa-badge strong { color: #2a3150; font-size: 0.78rem; letter-spacing: 0.08em; }
+.travel-visa-badge small { color: #748096; font-size: 0.52rem; font-weight: 800; letter-spacing: 0.12em; }
+.travel-eticket-chip {
+  top: 9%;
+  right: 3%;
+  gap: 8px;
+  padding: 10px 13px;
+  border-radius: 999px;
+  color: #25304a;
+  font-size: 0.7rem;
+  animation: travelBadgeFloat 5.8s ease-in-out -2.1s infinite;
+}
+.travel-eticket-chip span { color: var(--violet); font-size: 0.94rem; }
+.travel-services-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(21, 40, 247, 0.09), transparent 24rem),
+    radial-gradient(circle at 92% 82%, rgba(255, 100, 19, 0.1), transparent 22rem),
+    linear-gradient(135deg, #f7f9ff, #ffffff 54%, #fff8f3);
+}
+.travel-services-heading {
+  max-width: 780px;
+  margin-bottom: 42px;
+}
+.travel-services-heading h2 { margin-bottom: 0; }
+.travel-service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.travel-service-card {
+  --card-accent: var(--blue);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(21, 40, 247, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 22px 54px rgba(7, 20, 41, 0.1);
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+.travel-service-card:nth-child(2) { --card-accent: var(--violet); }
+.travel-service-card:nth-child(3) { --card-accent: var(--orange); }
+.travel-service-card:hover,
+.travel-service-card.reveal.is-visible:hover {
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--card-accent) 34%, transparent);
+  box-shadow: 0 30px 70px rgba(7, 20, 41, 0.16);
+}
+.travel-service-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #edf1fa;
+}
+.travel-service-media::after {
+  content: "";
+  position: absolute;
+  inset: 46% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(7, 20, 41, 0.32));
+}
+.travel-service-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 620ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.travel-service-card:hover .travel-service-media img { transform: scale(1.045); }
+.travel-service-media > span {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  bottom: 16px;
+  min-width: 44px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 999px;
+  color: #fff;
+  background: color-mix(in srgb, var(--card-accent) 78%, rgba(7, 20, 41, 0.35));
+  box-shadow: 0 8px 22px rgba(7, 20, 41, 0.2);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  backdrop-filter: blur(10px);
+}
+.travel-service-body {
+  position: relative;
+  min-height: 138px;
+  padding: 23px 22px 25px;
+}
+.travel-service-body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 22px;
+  width: 52px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--card-accent), transparent);
+}
+.travel-service-body h3 {
+  margin-bottom: 9px;
+  color: var(--ink);
+  font-size: 1.22rem;
+}
+.travel-service-body p { margin-bottom: 0; }
+.travel-gallery-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 90% 12%, rgba(139, 34, 214, 0.09), transparent 24rem),
+    radial-gradient(circle at 6% 88%, rgba(21, 40, 247, 0.08), transparent 22rem),
+    linear-gradient(135deg, #fbfaff, #ffffff 54%, #f5f8ff);
+}
+.travel-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+.travel-gallery-card {
+  overflow: hidden;
+  border: 1px solid rgba(21, 40, 247, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 22px 54px rgba(7, 20, 41, 0.1);
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+.travel-gallery-card:hover,
+.travel-gallery-card.reveal.is-visible:hover {
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--blue) 34%, transparent);
+  box-shadow: 0 30px 70px rgba(7, 20, 41, 0.16);
+}
+.travel-gallery-card video,
+.travel-gallery-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b1220;
+  object-fit: cover;
+  border: 0;
+}
+.travel-gallery-caption {
+  padding: 18px 20px 22px;
+}
+.travel-gallery-caption h3 {
+  margin-bottom: 6px;
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+.travel-gallery-caption p { margin-bottom: 0; }
 .visual-panel {
   min-height: 360px;
   display: grid;
@@ -750,6 +1178,23 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
 
 @keyframes routeFlow { to { stroke-dashoffset: -104; } }
 @keyframes ringRotate { to { transform: rotate(360deg); } }
+@keyframes travelRouteFlow { to { stroke-dashoffset: -112; } }
+@keyframes travelGlow {
+  0%, 100% { opacity: 0.72; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+@keyframes travelPassportFloat {
+  0%, 100% { transform: rotate(-4deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(-3deg) translate3d(0, -8px, 0); }
+}
+@keyframes travelTicketFloat {
+  0%, 100% { transform: rotate(2.2deg) translate3d(0, 0, 0); }
+  50% { transform: rotate(1deg) translate3d(0, -10px, 0); }
+}
+@keyframes travelBadgeFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -7px, 0); }
+}
 @keyframes coreBreathe {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.035); }
@@ -830,6 +1275,23 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   .nav-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0); }
   .nav-menu a { padding: 13px 12px; }
   .hero-grid, .subpage-grid, .contact-page-grid, .content-layout, .home-contact-grid { grid-template-columns: 1fr; gap: 42px; }
+  .travel-page-hero {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0.8) 42%, rgba(249, 250, 255, 0.96) 68%, #ffffff 100%),
+      url("assets/travel-hero-busan-beach.webp") center 62% / cover no-repeat;
+  }
+  .travel-motion {
+    justify-self: center;
+    width: min(100%, 520px);
+  }
+  .travel-service-grid { grid-template-columns: 1fr; }
+  .travel-gallery-grid { grid-template-columns: 1fr; }
+  .travel-service-card {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.9fr) 1fr;
+  }
+  .travel-service-media { aspect-ratio: 4 / 3; }
+  .travel-service-body { align-self: center; }
   #linh-vuc .section-inner,
   .why-section .section-inner {
     width: min(100% - 36px, 1040px);
@@ -873,6 +1335,43 @@ p { color: var(--muted); font-size: 0.98rem; line-height: 1.68; }
   }
   .hero-visual { min-height: 300px; }
   .connection-visual { width: min(112%, 480px); }
+  .travel-brand-lockup {
+    width: 150px;
+    max-width: 52vw;
+    margin-bottom: 20px;
+  }
+  .travel-page-hero .subpage-grid h1 {
+    width: min(100%, 340px);
+    margin-bottom: 20px;
+    padding-bottom: 0.2em;
+    font-size: 2.02rem;
+    line-height: 1.24;
+    overflow-wrap: normal;
+  }
+  .travel-page-hero .subpage-grid p:not(.eyebrow) {
+    width: min(100%, 340px);
+    margin-bottom: 24px;
+    font-size: 0.98rem;
+    line-height: 1.72;
+  }
+  .travel-motion {
+    width: min(100%, 430px);
+    margin-left: 0;
+  }
+  .travel-ticket-card { padding: 17px 17px 13px; }
+  .travel-visa-badge { right: 1%; padding: 9px 11px; }
+  .travel-eticket-chip { right: 1%; }
+  .ticket-route span { font-size: 1.4rem; }
+  .travel-passport-card { border-radius: 17px; }
+  .travel-services-heading { margin-bottom: 34px; }
+  .travel-service-card { display: block; }
+  .travel-service-body { min-height: auto; }
+  .travel-visa-badge strong { font-size: 0.7rem; }
+  .travel-visa-badge small { font-size: 0.46rem; }
+  .visa-check {
+    width: 30px;
+    height: 30px;
+  }
   .service-grid, .why-list, .visual-panel { grid-template-columns: 1fr; }
   .footer { align-items: flex-start; flex-direction: column; }
 }
